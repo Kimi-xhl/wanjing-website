@@ -260,14 +260,21 @@ export default {
             if (this.inStack(index, currentPage)) {
                 let perIndex = index - currentPage > 0 ? index - currentPage : index - currentPage + length
                 style['opacity'] = '1'
-                style['transform'] = 'translate3D(0,' + -2 * 25 * (perIndex - this.offsetRatio) + 'px' + ',' + -1 * 30 * (perIndex - this.offsetRatio) + 'px' + ')'
+                if(index%2 == 0){
+                    style['transform'] = 'translate3D(0,' + -2 * 25 * (perIndex - this.offsetRatio) + 'px' + ',' + -1 * 30 * (perIndex - this.offsetRatio) + 'px' + ')'
+                    +'rotate('+  (perIndex - this.offsetRatio) * 5 +'deg)'
+                }else{
+                    style['transform'] = 'translate3D(0,' + -2 * 25 * (perIndex - this.offsetRatio) + 'px' + ',' + -1 * 30 * (perIndex - this.offsetRatio) + 'px' + ')'
+                    +'rotate('+  (perIndex - this.offsetRatio) * -5 +'deg)'
+                }
+                
                 style['zIndex'] = visible - perIndex
                 if (!this.temporaryData.tracking) {
                     style[this.temporaryData.prefixes.transition + 'TimingFunction'] = 'ease'
                     style[this.temporaryData.prefixes.transition + 'Duration'] = 300 + 'ms'
                 }
             } else if (index === lastPage) {
-                style['transform'] = 'translate3D(' + this.temporaryData.lastPosWidth + 'px' + ',' + this.temporaryData.lastPosHeight + 'px' + ',0px) ' + 'rotate(' + this.temporaryData.lastRotate + 'deg)'
+                style['transform'] = 'translate3D(' + this.temporaryData.lastPosWidth + 'px' + ',' + this.temporaryData.lastPosHeight + 'px' + ',0px) ' + 'rotate(' + this.temporaryData.lastRotate + 'deg) ' 
                 style['opacity'] = this.temporaryData.lastOpacity
                 style['zIndex'] = this.temporaryData.lastZindex
                 style[this.temporaryData.prefixes.transition + 'TimingFunction'] = 'ease'
@@ -276,7 +283,7 @@ export default {
                 style['zIndex'] = '-1'
                 style['transform'] = 'translate3D(0,0,' + -1 * visible * 60 + 'px' + ')'
             }
-            return style
+                return style
         },
         // 首页样式切换
         transformIndex(index) {
@@ -385,6 +392,7 @@ export default {
 
 .stack-item {
     box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.9);
+
     background: #fff;
     height: 100%;
     width: 100%;
