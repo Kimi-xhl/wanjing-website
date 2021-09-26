@@ -111,7 +111,7 @@ export default {
                 step: 1, // 数值越大速度滚动越快
                 limitMoveNum: 5, // 开始无缝滚动的数据量 this.dataList.length
                 hoverStop: true, // 是否开启鼠标悬停stop
-                direction: 0, // 0向下 1向上 2向左 3向右
+                direction: 1, // 0向下 1向上 2向左 3向右
                 singleHeight: 0, // 单步运动停止的高度(默认值0是无缝不停止的滚动) direction => 0/1
                 singleWidth: 0, // 单步运动停止的宽度(默认值0是无缝不停止的滚动) direction => 2/3
                 waitTime: 1000, // 单步运动停止的时间(默认值1000ms)
@@ -128,7 +128,7 @@ export default {
     },
     mounted() {
         for (let index = 0; index < 18; index++) {
-            let imgUrl = require(`../assets/img/financial_logo/${index+1}.png`)
+            let imgUrl = require(`../assets/img/step_financial_logo/${index+1}.png`)
             this.financial_stepList.push(imgUrl)
         }
         this.someList = [{
@@ -381,7 +381,9 @@ Poccupine是倍受亚洲跨境电商商户追捧的国际贸易无边界结算�
     .financialAllWrapper{
         display: flex;
         flex-direction: column;
-
+        li{
+            margin-top: 13.5px;
+        }
     }
     img{
         width: 157.22px;
