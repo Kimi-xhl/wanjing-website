@@ -496,7 +496,6 @@ export default {
     position: relative;
     width: 100%;
     height: 878px;
-    background-color: pink;
 }
 
 .recommendPage .swiper-container .swiper-slide {

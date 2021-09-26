@@ -4,22 +4,28 @@
     <p class="title wow fadeInUp" data-wow-delay="0.1s" style="margin-top: 267px; margin-bottom: 198px">
         开店注册，一对一协助入驻
     </p>
-    <div class="stack-wrapper">
+    <div class="stack-wrapper" style="margin-bottom:96.4px">
         <stack ref="stack" :pages="someList" :stackinit="stackinit"></stack>
     </div>
 
-    <div class="userImage">
+ 
+
+    <div ref="brand" class="userImage" @click="scrollClick($event)">
         <vue-seamless-scroll  ref="seamless" :data="some_stepList" :class-option="defaultOption">
             <ul class="userImageAllWrapper">
                 <li v-for="(item, index) in some_stepList" :key="'a' + index">
-                    <img :src="item" alt="" />
+                    <img :src="item" alt="" :data-index="index" />
                 </li>
             </ul>
         </vue-seamless-scroll>
     </div>
 
-    <div class="stack-wrapper" style="margin-top: 500px">
-        <stack-rotate ref="stack" :pages="financialList" :stackinit="stackinit"></stack-rotate>
+    <p class="title wow fadeInUp" data-wow-delay="0.1s" style="margin-top: 228.5px; margin-bottom: 166px">
+        跨境金融服务    
+    </p>
+
+    <div class="stack-wrapper" style="">
+        <stack-rotate ref="stack2" :pages="financialList" :stackinit="stackinit"></stack-rotate>
     </div>
     <!-- <div class="controls">c
       <button @click="prev" class="button"><i class="prev"></i><span class="text-hidden">prev</span></button>
@@ -274,6 +280,11 @@ export default {
         next() {
             this.$refs.stack.$emit("next");
         },
+        scrollClick(e){
+            console.log(e.target.dataset);
+            console.log(this.$refs.stack.temporaryData.currentPage );
+            this.$refs.stack.temporaryData.currentPage =  parseInt(e.target.dataset.index)
+        }
     },
 };
 </script>

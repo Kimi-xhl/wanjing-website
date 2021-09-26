@@ -1,7 +1,10 @@
 <template>
 <div>
     <div class="header">
-        <svg-icon icon-class="logo" class-name="logo"></svg-icon>
+        <div @click="$router.push('./home')">
+        <svg-icon icon-class="logo" class-name="logo" ></svg-icon>
+
+        </div>  
         <div class="header_item" v-for="(item,index) in titleList" :key="index" @mouseover="ItemMouseover(index)" @mouseout="FlagIn = false">
             <p>{{item}}</p>
             <div class="header_subItem" :class="{'show':Flag == index&&FlagIn}">
@@ -97,6 +100,7 @@ export default {
 .logo {
     width: 280px;
     height: 53.92px;
+    cursor: pointer;
 }
 
 .header {

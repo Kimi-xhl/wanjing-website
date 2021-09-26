@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Layout from '@/layout/Layout'
-
+import Test from '@/views/test.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +41,11 @@ const routes = [
         name:'Station',
         path:'/station',
         component:()=>import('@/views/station.vue')
+      },
+      {
+        name:'Test',
+        path:'/test',
+        component:()=>import('@/views/test.vue')
       }
     ]
   },
