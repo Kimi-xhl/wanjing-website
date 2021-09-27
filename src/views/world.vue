@@ -359,10 +359,15 @@ Poccupine是倍受亚洲跨境电商商户追捧的国际贸易无边界结算�
         scrollClick(e){
             console.log(e.target.dataset);
             console.log(this.$refs.stack.temporaryData.currentPage );
-            this.$refs.stack.temporaryData.currentPage =  parseInt(e.target.dataset.index)
+            if(e.target.dataset.index){
+                this.$refs.stack.temporaryData.currentPage =  parseInt(e.target.dataset.index)
+
+            }
         },
         financial_scrollClick(e){
-            this.$refs.stack2.temporaryData.currentPage =  parseInt(e.target.dataset.index)
+            if(e.target.dataset.index){
+                this.$refs.stack2.temporaryData.currentPage =  parseInt(e.target.dataset.index)
+            }
         }
     },
 };

@@ -39,6 +39,8 @@ Vue.prototype.$message = Message;
 Vue.prototype.$notify = Notification;
 Vue.prototype.$wow=wow
 
+document.title = "万鲸科技"
+
 new Vue({
   router,
   store,
