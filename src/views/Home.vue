@@ -454,7 +454,7 @@ export default {
         },
         defaultOption() {
             return {
-                step: 0.5, // 数值越大速度滚动越快
+                step: 1, // 数值越大速度滚动越快
                 limitMoveNum: 1, // 开始无缝滚动的数据量 this.dataList.length
                 hoverStop: true, // 是否开启鼠标悬停stop
                 direction: 1, // 0向下 1向上 2向左 3向右
@@ -578,7 +578,7 @@ export default {
     position: relative;
 
     .item {
-        box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 5px 15px -5px rgba(0  , 0, 0, 0.2);
         background-color: #fff;
         width: 280px;
         height: 290px;

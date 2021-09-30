@@ -23,7 +23,7 @@
         <p class="title" style="margin-top: 119px; margin-bottom: 70px">
             每日必看
         </p>
-        <div class="news"> 
+        <div class="news">
             <div class="news_item"  v-for="(item,index) in newsList" :key="index">
                 <div class="news_main">
                     <img :src="item.img" alt="newsImg">
@@ -173,7 +173,6 @@ export default {
                 position: absolute;
                 bottom: 10px;
                 right: 25px;
-                color: #E48A8A;
                 opacity: 0.5;
                 letter-spacing: 1px;
             }

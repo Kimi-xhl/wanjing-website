@@ -19,7 +19,7 @@ module.exports = {
   pluginOptions: {
     "style-resources-loader": {
       preProcessor: "less",
-    
+
     }
   },
 
@@ -79,5 +79,15 @@ module.exports = {
       );
     }
     config.plugins = [...config.plugins, ...plugins];
+
+    if (process.env.NODE_ENV === "production") {
+      config.optimization.minimizer.map((arg) => {
+        const option = arg.options.terserOptions.compress;
+        option.drop_console = true; // 打开开关
+        return arg;
+      });
+    }
+
   }
+
 }

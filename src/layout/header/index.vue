@@ -4,8 +4,8 @@
         <div @click="$router.push('./home')">
         <svg-icon icon-class="logo" class-name="logo" ></svg-icon>
 
-        </div>  
-        <div class="header_item" v-for="(item,index) in titleList" :key="index" @mouseover="ItemMouseover(index)" @mouseout="FlagIn = false">
+        </div>
+        <div class="header_item" v-for="(item,index) in titleList" :key="index" @click="clickHeaderItem(index)" @mouseover="ItemMouseover(index)" @mouseout="FlagIn = false">
             <p>{{item}}</p>
             <div class="header_subItem" :class="{'show':Flag == index&&FlagIn}">
                 <p>{{subTitleTopList[index]}}</p>
@@ -13,11 +13,15 @@
             </div>
         </div>
     </div>
+    <template v-if="Flag == 0">
+
     <div :class="{header_hover:true,show:FlagIn}" @mouseover="FlagIn = true" @mouseout="FlagIn = false">
         <div :class="{header_hover_item:true}" v-for="(item,index) in routerLink[Flag]" :key="index">
             <router-link :to="item.path">{{item.text}}</router-link>
         </div>
     </div>
+    </template>
+
 </div>
 </template>
 
@@ -91,6 +95,12 @@ export default {
         ItemMouseover(index) {
             this.Flag = index
             this.FlagIn = true
+        },
+        //点击头部
+        clickHeaderItem(index){
+          if(index != 0){
+            this.$router.push(this.routerLink[index][0].path)
+          }
         }
     },
 };
@@ -171,12 +181,12 @@ export default {
 }
 
 
-@-webkit-keyframes show 
+@-webkit-keyframes show
 {
 0% {opacity:0;}
 100% {opacity:1;}
 }
-@-webkit-keyframes hide 
+@-webkit-keyframes hide
 {
 0% {opacity:1;}
 100% {opacity:0;}
